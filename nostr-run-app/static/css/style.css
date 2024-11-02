@@ -1,0 +1,22 @@
+/* Custom styles on top of Bootstrap dark theme */
+body {
+    min-height: 100vh;
+    background-color: var(--bs-dark);
+    color: var(--bs-light);
+}
+
+.card {
+    background-color: var(--bs-dark);
+    border: 1px solid var(--bs-gray-700);
+}
+
+#timer {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.feather {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+}

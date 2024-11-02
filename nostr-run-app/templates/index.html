@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-8 mx-auto text-center">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 id="timer" class="display-1">00:00:00</h2>
+                    <div class="d-flex justify-content-center gap-2 mb-3">
+                        <button id="startBtn" class="btn btn-success btn-lg">
+                            <i data-feather="play"></i> Start
+                        </button>
+                        <button id="pauseBtn" class="btn btn-warning btn-lg" disabled>
+                            <i data-feather="pause"></i> Pause
+                        </button>
+                        <button id="stopBtn" class="btn btn-danger btn-lg" disabled>
+                            <i data-feather="square"></i> Stop
+                        </button>
+                    </div>
+                    <div class="text-muted">Distance: <span id="distance">0.00</span> km</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Recent Runs</h3>
+                    <div id="runHistory" class="list-group">
+                        <!-- Run history will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/run.js"></script>
+{% else %}
+    <div class="text-center">
+        <h1>Welcome to Nostr Run</h1>
+        <p class="lead">Track your runs and achieve your fitness goals!</p>
+        <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+{% endif %}
+{% endblock %}
